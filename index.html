@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Modern Interactive Website</title>
+    <style>
+        body {
+            text-align: center;
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(to right, #ffecd2, #fcb69f);
+            color: #333;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            transition: color 0.3s ease;
+        }
+        button {
+            margin: 10px;
+            padding: 15px 25px;
+            font-size: 18px;
+            font-weight: bold;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+        button:hover {
+            background-color: #ffe0b2;
+            transform: scale(1.1);
+        }
+        #counter {
+            font-size: 1.5rem;
+            margin-top: 20px;
+        }
+        input {
+            margin: 10px;
+            padding: 10px;
+            font-size: 16px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+    </style>
+</head>
+<body>
+    <h1 id="heading">Welcome to My Modern Interactive Website</h1>
+    <input type="text" id="headingInput" placeholder="Change the heading text">
+    <button onclick="changeHeading()">Change Heading</button>
+    <button onclick="displayMessage()">Click Me</button>
+    <button onclick="changeColor()">Change Background Color</button>
+    <button onclick="incrementCounter()">Increment Counter</button>
+    <button onclick="showJoke()">Show Random Joke</button>
+    <p id="counter">Counter: 0</p>
+    <p id="joke"></p>
+
+    <script>
+        function displayMessage() {
+            alert("Button clicked!");
+        }
+
+        function changeColor() {
+            const colors = ["#ff9999", "#99ff99", "#9999ff", "#ffff99", "#ffcc99", "#99ccff"];
+            const randomColor = colors[Math.floor(Math.random() * colors.length)];
+            document.body.style.background = randomColor;
+        }
+
+        function incrementCounter() {
+            const counterElement = document.getElementById("counter");
+            let counter = parseInt(counterElement.innerText.split(": ")[1]);
+            counter += 1;
+            counterElement.innerText = "Counter: " + counter;
+        }
+
+        function changeHeading() {
+            const headingInput = document.getElementById("headingInput").value;
+            document.getElementById("heading").innerText = headingInput;
+        }
+
+        function showJoke() {
+            const jokes = [
+                "Why don't scientists trust atoms? Because they make up everything!",
+                "What do you call fake spaghetti? An impasta!",
+                "Why did the scarecrow win an award? Because he was outstanding in his field!"
+            ];
+            const randomJoke = jokes[Math.floor(Math.random() * jokes.length)];
+            document.getElementById("joke").innerText = randomJoke;
+        }
+    </script>
+</body>
+</html>
